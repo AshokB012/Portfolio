@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Ashok's Portfolio</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: #f4f4f4;
+      color: #333;
+    }
+    header {
+      background-color: #007acc;
+      color: white;
+      text-align: center;
+      padding: 40px 20px;
+    }
+    header h1 {
+      margin: 0;
+      font-size: 2.5em;
+    }
+    header p {
+      font-size: 1.2em;
+      margin-top: 5px;
+    }
+    section {
+      max-width: 900px;
+      margin: 30px auto;
+      background: white;
+      padding: 20px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    }
+    h2 {
+      color: #007acc;
+      border-bottom: 2px solid #eee;
+      padding-bottom: 5px;
+    }
+    ul {
+      list-style: none;
+      padding: 0;
+    }
+    ul li::before {
+      content: "✔ ";
+      color: #007acc;
+    }
+    footer {
+      background: #007acc;
+      color: white;
+      text-align: center;
+      padding: 20px;
+      margin-top: 30px;
+    }
+    a {
+      color: #ffd700;
+      text-decoration: none;
+    }
+  </style>
+</head>
+<body>
+  <header id="header">
+    <!-- Dynamic content -->
+  </header>
+
+  <section id="about">
+    <!-- Dynamic content -->
+  </section>
+
+  <section id="skills">
+    <!-- Dynamic content -->
+  </section>
+
+  <section id="projects">
+    <!-- Dynamic content -->
+  </section>
+
+  <section id="contact">
+    <!-- Dynamic content -->
+  </section>
+
+  <footer>
+    © <span id="year"></span> Ashok Kumar | Designed with 💙 by Sweety
+  </footer>
+
+  <script>
+    // ==== PROFILE DATA IN JAVASCRIPT ====
+    const profile = {
+      name: "Ashok Kumar Bandlamudi",
+      title: "DevOps Engineer | SAP SD Learner | GitHub Enthusiast",
+      about: "I am a passionate learner currently focused on Azure DevOps and SAP SD modules. With a background in pharmacy and experience as an Analyst, I'm now transitioning into the tech world with a keen interest in automation, cloud infrastructure, and continuous integration pipelines.",
+      skills: [
+        "Azure DevOps & CI/CD Pipelines",
+        "Git, GitHub & Version Control",
+        "Docker & Containerization",
+        "Linux Commands & Shell Scripting",
+        "SAP SD Configuration Basics"
+      ],
+      projects: [
+        {
+          name: "Portfolio Website (This One)",
+          description: "A responsive portfolio created with HTML, CSS, and JavaScript."
+        },
+        {
+          name: "Azure DevOps CI/CD Demo",
+          description: "Created a demo pipeline for a Node.js app with Docker deployment."
+        }
+      ],
+      contact: {
+        email: "ashok@example.com",
+        github: "https://github.com/yourgithubusername"
+      }
+    };
+
+    // ==== RENDER FUNCTIONS ====
+    document.getElementById('header').innerHTML = `
+      <h1>${profile.name}</h1>
+      <p>${profile.title}</p>
+    `;
+
+    document.getElementById('about').innerHTML = `
+      <h2>About Me</h2>
+      <p>${profile.about}</p>
+    `;
+
+    document.getElementById('skills').innerHTML = `
+      <h2>Skills</h2>
+      <ul>${profile.skills.map(skill => `<li>${skill}</li>`).join('')}</ul>
+    `;
+
+    document.getElementById('projects').innerHTML = `
+      <h2>Projects</h2>
+      ${profile.projects.map(project => `
+        <div>
+          <strong>${project.name}</strong><br>
+          <p>${project.description}</p>
+        </div>
+      `).join('')}
+    `;
+
+    document.getElementById('contact').innerHTML = `
+      <h2>Contact</h2>
+      <p>Email: <a href="mailto:${profile.contact.email}">${profile.contact.email}</a></p>
+      <p>GitHub: <a href="${profile.contact.github}" target="_blank">${profile.contact.github}</a></p>
+    `;
+
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
